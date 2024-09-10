@@ -25,11 +25,12 @@ const ResetPassword = () => {
             setError('Password do not match');
         } else {
             setError('');
-            const email = searchParams.get(email)
+            const email = searchParams.get('email')
+            console.log(email)
             setLoading(true)
             const data = await resetPassword({email, password})
             if(data.code==1) {
-                setLoading(true)
+                setLoading(false)
                 setSuccess('Reset Successfully')
                 setComplete(true)
             }
